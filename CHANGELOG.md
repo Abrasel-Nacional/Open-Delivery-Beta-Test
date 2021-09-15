@@ -27,8 +27,59 @@ Atributos alterados:
 	* `orderUrl` no objeto `Event` utilizado no webhook e no pooling de pedidos para `orderURL`
 * Identificação do path para os webhooks:
   * Webhook de atualização de cardápio: `/merchantUpdate`
-  * Webhook de recebimento de eventos de pedido: `/events`
-* [[Issue #11](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/13)] - Incluída a opção `LOGISTIC_SERVICES` no atributo `receivedBy` no objeto `otherFees` do endpoint `/orders/{orderId}`
+  * Webhook de recebimento de eventos de pedido: `/newEvent`
+* [[Issue #11](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/11)] - Incluída a opção `LOGISTIC_SERVICES` no atributo `receivedBy` no objeto `otherFees` do endpoint `/orders/{orderId}`
+* [[Issue #9](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/9)] - Acrescentado e corrigido os status codes dos seguintes endpoints:
+  * /merchantStatus
+    * 400 - Bad Request - Adicionado
+  * /merchantUpdate (webhook)
+    * 400 - Bad Request - Adicionado
+
+  * /events:polling
+    * 400 - Bad Request - Adicionado
+  * /events/acknowledgment:
+    * 400 - Bad Request - Adicionado
+    * 404 - Not Found - Adicionado
+  * /newEvent (webhook)
+    * 400 - Bad Request - Adicionado  
+    
+  * /orders/{orderId}:
+    * 400 - Bad Request - Corrigido
+    * 403 - Forbidden - Adicionado
+    * 404 - Not Found - Corrigido
+    * 503 - Service Unavailable - Corrigido 
+  * /orders/{orderId}/confirm:
+    * 400 - Bad Request - Adicionado
+    * 404 - Not Found - Adicionado
+  * /orders/{orderId}/readyForPickup:
+    * 400 - Bad Request - Adicionado
+    * 404 - Not Found - Adicionado
+  * /orders/{orderId}/dispatch:
+    * 400 - Bad Request - Adicionado
+    * 404 - Not Found - Adicionado
+  * /orders/{orderId}/requestCancellation:
+    * 400 - Bad Request - Adicionado
+    * 403 - Forbidden - Adicionado
+    * 404 - Not Found - Adicionado
+    * 503 - Service Unavailable - Corrigido 
+  * /orders/{orderId}/acceptCancellation:
+    * 400 - Bad Request - Adicionado
+    * 403 - Forbidden - Adicionado
+    * 404 - Not Found - Adicionado
+    * 503 - Service Unavailable - Corrigido 
+  * /orders/{orderId}/denyCancellation:
+    * 400 - Bad Request - Adicionado
+    * 403 - Forbidden - Adicionado
+    * 404 - Not Found - Adicionado
+    * 503 - Service Unavailable - Corrigido 
+    
+  * /salesReport:
+    * 400 - Bad Request - Adicionado
+
+  * /merchantList:
+    * 400 - Bad Request - Corrigido
+    * 404 - Not Found - Corrigido
+    * 503 - Service Unavailable - Corrigido 
 
 * Foram ajustadas as descrições e exemplos de diversos atributos para refletir melhor a informação a ser preenchida.
 
