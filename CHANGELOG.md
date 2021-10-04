@@ -3,9 +3,9 @@
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 ## [1.00 rc4]
 * [[Issue #21](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/21)] - Inclusão de atributo **`X-App-MerchanId`** como parametro de **header** no request do webhook de notificação de pedido (/orderEvent) com o intuito de identificar qual merchant está recebendo o pedido.
-* [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Alterado o endpoint de autenticação /oauth/token para **POST** . Estava incorretamente descrito como GET.
+* [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Corrigido o endpoint de autenticação `/oauth/token` para **`POST`** . Estava incorretamente descrito como `GET`.
+* [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Corrigida a opção do atributo `grantType` do endpoint `oauth/token` de `clientCredentials` para `client_credentials`.
 * Alterada as opções no atributo `type` no objeto `payments` do endpoint `/orders/{orderId}` de `ONLINE` e `OFFLINE` para `PREPAID` e `PENDING` para melhor refletir a intenção do campo.
-* Corrigida a opção do atributo `grantType` do endpoint `oauth/token` de `clientCredentials` para `client_credentials`.
 
 * Incluído em todos os endpoints qual é o HOST e a DIREÇÃO do endpoint.
 
