@@ -1,6 +1,15 @@
 # Changelog
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
+## [1.00 rc5]
+### Mudanças com quebra de contrato:
+* [[Issues #19](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/19) | [#20](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/20) | [ #27](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/27) | [ #33](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/33)] - Reformulação de toda a estrutura da entidade `SERVICE_AREA`. Os campos da entidade receberam uma nova estrutura facilitando o cadastro, bem como integrando a parte de taxas e distancia de entrega. Com isso a entidade `SERVICE_AREA_FEE` foi excluída da documentação pois sua função foi incorporada na 'SERVICE_AREA`.
+
+	A nova estrutura pode ser conferida na documentação: https://abrasel-nacional.github.io/docs/#section/Service  
+
+* [[Issue #30](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/30)] - Alterado o atributo `availability` do endpoint `/merchant` para **`availabilities`** seguindo o padrão de grafia no plural dos demais campos. 
+* [[Issue #29](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/29)] - Alterada o tipo do atributo `isAlcoholic` na propriedade `nutritionalInfo` do objeto `items` do endpoint `/merchant` de `string` para `boolean`.
+
 ## [1.00 rc4]
 * [[Issue #21](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/21)] - Inclusão de atributo **`X-App-MerchanId`** como parametro de **header** no request do webhook de notificação de pedido (/orderEvent) com o intuito de identificar qual merchant está recebendo o pedido.
 * [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Corrigido o endpoint de autenticação `/oauth/token` para **`POST`** . Estava incorretamente descrito como `GET`.
