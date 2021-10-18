@@ -1,6 +1,26 @@
 # Changelog
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
+
+## [1.00 rc6]
+### Mudanças com quebra de contrato:
+* [[Issue #32](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/32)] 
+  - Removido todos os `@` da frente dos atributos `@id`. Agora todos os atributos estão padronizados como `id`.  
+  - Removido todos os campos `@type` das entidades do `/merchant`.
+  - Removido o `@` do atributo `@type` do objeto `orders` que foi renomeado para `type` (sem o @).
+![image](https://user-images.githubusercontent.com/80956588/137760918-3f3185b8-0696-4060-ab86-87b6ba05eb39.png)
+
+* [[Issue #35](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/35)] - Corrigido o nome do atributo **`X-App-MerchanId`** do parametro de **header** no request do webhook de notificação de pedido para **`X-App-MerchantId`**.
+* [[Issue #39](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/39)] - Alterado os retornos dos seguintes endpoints de `HTTP 200` para `HTTP 202`:
+  - `/orders/{orderId}/confirm`
+  - `/orders/{orderId}/requestCancellation`
+  - `/orders/{orderId}/readyForPickup`
+  - `/orders/{orderId}/dispatch`
+ 
+ ### Outras mudanças
+* Reestruturação do menu lateral, separando melhor as seções.
+* Corrigido alguns campos dos exemplos, para refletir corretamente a descrição dos campos.
+
 ## [1.00 rc5]
 ### Mudanças com quebra de contrato:
 * [[Issues #19](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/19) | [#20](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/20) | [ #27](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/27) | [ #33](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/33)] - Reformulação de toda a estrutura da entidade `SERVICE_AREA`. Os campos da entidade receberam uma nova estrutura facilitando o cadastro, bem como integrando a parte de taxas e distancia de entrega. Com isso a entidade `SERVICE_AREA_FEE` foi excluída da documentação pois sua função foi incorporada na 'SERVICE_AREA`.
