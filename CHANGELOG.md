@@ -2,7 +2,30 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
-## [1.00 rc6]
+## [1.0.0-rc.7] - 26/11/2021
+### Mudanças com quebra de contrato:
+* [[Issue #43](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/43)] - Alterado os atributos `out_of_stock_items` e `invalid_items` do endpoint `/orders/{orderId}/requestCancellation` para `outOfStockItems` e `invalidItems` corrigindo-os para o padrão camelCase utilizado no restante da documentação.
+
+### Outras mudanças
+* Reestruturação do menu lateral, separando melhor as seções:
+  * Adicionado uma seção 'Table of Contents';
+  * Separação da documentação por versões (1.0.0-rc.X e 1.1.0-rc.X);
+* Removido o `format` do atributo `description` do `nutricionalInfo` do objeto `item` do Merchant que estava incorretamente marcado como "UUID";
+* Corrigida a grafia da opção `BURGUER` para `BURGER` no atributo  `merchantCategories` do objeto `BasicInfo` do Merchant.
+
+Correções nos exemplos 
+* [[Issue #48](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/48)] - Corrigido todos os campos `country` para representar a sua descrição de forma correta;
+* [[Issue #49](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/49)] - Corrigido todos os campos  `currency` para representar a sua descrição de forma correta;
+* [[Issue #51](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/51)] - Corrigido todos os campos de "image" para melhor representar o schema do objeto `Image`;
+* [[Issue #53](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/53)] - Corrigida a ortografia de todos os campos `itemId` no exemplo do `/merchant` (`itemid` para `itemId`);
+* [[Issue #54](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/54)] - Corrigido alguns campos `id` no exemplo do `/merchant` que tinham uma aspas adicional 
+* [[Issue #55](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/55)] - Corrigido o campo `contactPhone` no exemplo do `/merchant`
+* [[Issue #56](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/56)] - Corrigido o objeto `services` no exemplo do `/merchant`
+* [[Issue #57](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/57)] - Corrigido o objeto `weekHours` no exemplo do `/merchant`
+* Corrigido o campo `contactEmails` no exemplo de `/merchant`
+* Corrigido o objeto `availability` no exemplo do `/merchant`  
+
+## [1.0.0-rc.6] - 18/10/2021
 ### Mudanças com quebra de contrato:
 * [[Issue #32](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/32)] 
   - Removido todos os `@` da frente dos atributos `@id`. Agora todos os atributos estão padronizados como `id`.  
@@ -21,7 +44,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 * Reestruturação do menu lateral, separando melhor as seções.
 * Corrigido alguns campos dos exemplos, para refletir corretamente a descrição dos campos.
 
-## [1.00 rc5]
+## [1.0.0-rc.5] - 11/10/2021
 ### Mudanças com quebra de contrato:
 * [[Issues #19](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/19) | [#20](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/20) | [ #27](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/27) | [ #33](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/33)] - Reformulação de toda a estrutura da entidade `SERVICE_AREA`. Os campos da entidade receberam uma nova estrutura facilitando o cadastro, bem como integrando a parte de taxas e distancia de entrega. Com isso a entidade `SERVICE_AREA_FEE` foi excluída da documentação pois sua função foi incorporada na 'SERVICE_AREA`.
 
@@ -30,7 +53,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 * [[Issue #30](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/30)] - Alterado o atributo `availability` do endpoint `/merchant` para **`availabilities`** seguindo o padrão de grafia no plural dos demais campos. 
 * [[Issue #29](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/29)] - Alterada o tipo do atributo `isAlcoholic` na propriedade `nutritionalInfo` do objeto `items` do endpoint `/merchant` de `string` para `boolean`.
 
-## [1.00 rc4]
+## [1.0.0-rc.4] - 04/10/2021
 * [[Issue #21](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/21)] - Inclusão de atributo **`X-App-MerchanId`** como parametro de **header** no request do webhook de notificação de pedido (/orderEvent) com o intuito de identificar qual merchant está recebendo o pedido.
 * [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Corrigido o endpoint de autenticação `/oauth/token` para **`POST`** . Estava incorretamente descrito como `GET`.
 * [[Issue #22](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/22)] - Corrigida a opção do atributo `grantType` do endpoint `oauth/token` de `clientCredentials` para `client_credentials`.
@@ -42,7 +65,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
 
 
-## [1.00 rc3]
+## [1.0.0-rc.3] - 13/09/2021
 ### Mudanças com quebra de contrato:
 * [[Issue #8](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/8)] - Alterada a autenticação do endpoint `/merchant` para `apiKey` ao invés de `oauth2`. A autenticação também passa a ser opcional. Ver issue para maiores detalhes.
 * [[Issue #13](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/13)] e [[Issue #15](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/15)]  - Alterado o nome de alguns atributos nos seguintes objetos:
@@ -123,12 +146,12 @@ Atributos alterados:
 
 * Foram ajustadas as descrições e exemplos de diversos atributos para refletir melhor a informação a ser preenchida.
 
-## [1.00 rc2]
+## [1.0.0-rc.2] - 18/08/2021
 * [[Issue #3](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/3)] Inclusão dos atributos `entityType` e `updatedObject` no request do webhook de notificação de atualizações do cardápio com o intuitio de já notificar a plataforma de pedidos sobre atualizações menores de uma determinada entidade (como mudança de status).
 
-## [1.00 rc1]
+## [1.0.0-rc.1] - 18/08/2021
 * Inclusão do atributo `moreInfo` no response do endpoint `GET /merchantStatus` com o intuitio de fornecer mais informações para os Software Services.
 * [[Isuue #5](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/5)] Inclusão de exemplos dos formatos de data (date-time, date e time) na seção `General Guidelines`
 
-## [1.00 rc0]
+## [1.0.0-rc.0] - 18/08/2021
 * Versão inicial da documentação do Open Delivery disponibilizada para testes.
