@@ -2,6 +2,21 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+## [1.0.0-rc.8] - 14/12/2021
+### Mudanças com quebra de contrato:
+* [[Issue #50](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/50)] - Todos os atributos `latitude` e `longitude` tiveram seu formato alterado para `number` com precisão de 5 casas decimais.
+Objetos afetados:
+	- `Address`
+	- `Polygon`
+	- `GeoRadius`
+	- `Order`
+	- `GeoLocalization`
+	
+### Outras mudanças
+* [[Issue #52](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/52)] - Retirada a obrigatoriedade de preenchimento do  campo `image` nos objetos `Item` e `Category`.
+* [[Issue #46](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/46)] - Recomendada a utilização do padrão **ISO 3166-2** nos campos de `state` nos objetos de endereços.
+
+
 ## [1.0.0-rc.7] - 26/11/2021
 ### Mudanças com quebra de contrato:
 * [[Issue #43](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/43)] - Alterado os atributos `out_of_stock_items` e `invalid_items` do endpoint `/orders/{orderId}/requestCancellation` para `outOfStockItems` e `invalidItems` corrigindo-os para o padrão camelCase utilizado no restante da documentação.
