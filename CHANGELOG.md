@@ -2,6 +2,19 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+## [1.0.0-rc.9] - 23/12/2021
+* [[Issue #58](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/58)] - Adicionado o campo `reference` em todos os objetos relacionados a endereço:
+Objetos afetados:
+	- `Address`
+	- `Order`
+* [[Issue #61](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/61)] - Corrigido os campos `deliveryPrice` que estavam referenciando um schema incorreto. Endpoints afetados:
+	- `Delivery Tracking`
+	- `Delivery Availability and Pricing`
+* [[Issue #62](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/62)] - Adicionado o HTTP code **204** no endpoint `GET /events:pooling` a ser utilizado para os casos de não existir novos eventos.
+* [[Issue #63](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/63)] 
+	- Removido o texto descritivo do schema do endpoint `POST /orders/{orderId}/requestCancellation`. 
+	- Corrigida a opção `INTERNAL_DIFFICULTIES_OF_THE_RESTAURANT` que estava formatada de maneira incorreta do mesmo endpoint acima. 
+
 ## [1.0.0-rc.8] - 14/12/2021
 ### Mudanças com quebra de contrato:
 * [[Issue #50](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/50)] - Todos os atributos `latitude` e `longitude` tiveram seu formato alterado para `number` com precisão de 5 casas decimais.
