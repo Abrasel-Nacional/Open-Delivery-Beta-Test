@@ -2,7 +2,7 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
-## [1.0.0-rc.10] - 03/02/2022
+## [1.0.0-rc.10] - 04/02/2022
 ### Mudanças com quebra de contrato:
 * Os nomes dos campos do endpoint [/oauth/token](https://abrasel-nacional.github.io/docs/#operation/getToken) foram alterados para atender o padrão proposto pelo oAuth, seguindo as regras descritas nas páginas do padrão:
 
