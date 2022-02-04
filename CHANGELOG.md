@@ -28,7 +28,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 ### Outras mudanças
 * Foi adicionado um novo campo nos endpoint [/events:polling](http://localhost:9093/-307623811#operation/pollingEvents) e [/orders/{orderId}](http://localhost:9093/-307623811#tag/ordersDetails/paths/~1orders~1{orderId}/get)  chamado `sourceAppId` para ser utilizado pelas empresas que efetuam o papel de Hub.
 * [[Issue #67](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/67)] - Retirada a obrigatoriedade do campo `clientId` do metadata do objeto Event do pedido para os eventType = `CONFIRMED`. 
-* [[Issue #70](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/70)] - Como formato do campo `MerchantId` possui uma definição bem especifica, a definição do format UUID foi removida para ficar apenas string. Isso afeta os objetos e parametros que utilizam o Id do merchant. Os lugares afetados são:
+* [[Issue #70](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/70)] - Como o formato do campo `MerchantId` possui uma definição bem especifica, o format `UUID` foi removido deixando o campo apenas como `string`. Isso afeta os objetos e parametros que utilizam o Id do merchant. Os lugares afetados são:
   - Parametros do request:
     - /merchantStatus
     - /events:polling
@@ -42,7 +42,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
     - DeliveryAvailabilityPrice
     - DeliveryOrderDetails
     
-* Adicionada uma nova seção chamada, [How to Start](https://abrasel-nacional.github.io/docs/#section/How-to-Start-(Setup-Guide)) para auxiliar as empresas nas implementações e parametrizações.
+* Adicionada uma nova seção chamada [How to Start](https://abrasel-nacional.github.io/docs/#section/How-to-Start-(Setup-Guide)), para auxiliar as empresas nas implementações e parametrizações.
 
 ## [1.0.0-rc.9] - 23/12/2021
 * [[Issue #58](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/58)] - Adicionado o campo `reference` em todos os objetos relacionados a endereço:
