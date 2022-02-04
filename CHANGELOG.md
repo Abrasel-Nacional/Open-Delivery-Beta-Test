@@ -2,6 +2,48 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+## [1.0.0-rc.10] - 03/02/2022
+### Mudanças com quebra de contrato:
+* Os nomes dos campos do endpoint [/oauth/token](https://abrasel-nacional.github.io/docs/#operation/getToken) foram alterados para atender o padrão proposto pelo oAuth, seguindo as regras descritas nas páginas do padrão:
+
+  - Request: (https://www.oauth.com/oauth2-servers/access-tokens/client-credentials/)
+    -   `clientId` para `client_id`
+    - 	`clientSecret` para `client_secret`
+    -	`grantType` para `grant_type`
+
+  - Response: (https://www.oauth.com/oauth2-servers/access-tokens/access-token-response/)
+    -   `accessToken` para `access_token`
+    - 	`tokenType` para `token_type`
+    -	`expiresIn` para `expires_in`
+		
+* Foram efetuadas duas alterações no endpoint [/events:polling](https://abrasel-nacional.github.io/docs/#operation/pollingEvents)
+  - Foi retirada a obrigatoriedade do campo `eventType` no request. Ao não informar este campo, a ORDERING APPLICATION deverá retornar todos os eventos que ainda não foram ack do merchant efetuando o polling, independente do `eventType`.
+
+  - [[Issue #69](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/69)] - A resposta HTTP 200 do endpoint estava incorretamente retornado um objeto simples. A resposta foi corrigida para retornar um array de objetos.  
+  de:  
+  `{ "eventId": "string", "eventType": "CREATED", "orderId": "string", "orderURL": "http://example.com", "createdAt": "2019-08-24T14:15:22Z" }`  
+  para:  
+  `[ { "eventId": "string", "eventType": "CREATED", "orderId": "string", "orderURL": "http://example.com", "createdAt": "2019-08-24T14:15:22Z" } ]`
+
+### Outras mudanças
+* Foi adicionado um novo campo nos endpoint [/events:polling](http://localhost:9093/-307623811#operation/pollingEvents) e [/orders/{orderId}](http://localhost:9093/-307623811#tag/ordersDetails/paths/~1orders~1{orderId}/get)  chamado `sourceAppId` para ser utilizado pelas empresas que efetuam o papel de Hub.
+* [[Issue #67](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/67)] - Retirada a obrigatoriedade do campo `clientId` do metadata do objeto Event do pedido para os eventType = `CONFIRMED`. 
+* [[Issue #70](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/70)] - Como formato do campo `MerchantId` possui uma definição bem especifica, a definição do format UUID foi removida para ficar apenas string. Isso afeta os objetos e parametros que utilizam o Id do merchant. Os lugares afetados são:
+  - Parametros do request:
+    - /merchantStatus
+    - /events:polling
+    - Order Webhook
+    - Delivery Order Webhook
+  - Objetos:
+    - Merchant 
+    - Order
+    - DeliveryOrder
+    - DeliveryOrderEvent
+    - DeliveryAvailabilityPrice
+    - DeliveryOrderDetails
+    
+* Adicionada uma nova seção chamada, [How to Start](https://abrasel-nacional.github.io/docs/#section/How-to-Start-(Setup-Guide)) para auxiliar as empresas nas implementações e parametrizações.
+
 ## [1.0.0-rc.9] - 23/12/2021
 * [[Issue #58](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/58)] - Adicionado o campo `reference` em todos os objetos relacionados a endereço:
 Objetos afetados:
