@@ -21,7 +21,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
   - [POST /logistics/availability](https://abrasel-nacional.github.io/docs/#tag/logisticPrice)
   - [POST /deliveryUpdate](https://abrasel-nacional.github.io/docs/#operation/newLogisticEvent)
   - [GET /logistics/delivery/{orderId}](https://abrasel-nacional.github.io/docs/#operation/logisticDetails)
-* Adicionada uma nova seção  nas explicações dos [eventos de logística](https://abrasel-nacional.github.io/docs/##tag/logisticOrder) explicando o funcionamento de novas tentativas de um pedido rejeitado.
+* Adicionada uma nova seção  nas explicações dos [eventos de logística](https://abrasel-nacional.github.io/docs/#tag/logisticOrder) explicando o funcionamento de novas tentativas de um pedido rejeitado.
   
   
 ## [1.0.0-rc.4] - 21/02/2022
