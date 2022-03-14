@@ -2,15 +2,16 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+## [1.0.0-rc.12] - 12/03/2022
+
+* [[Issue #77](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/77)] - Adição do enum `PROCESSING` como opção do campo  `status` do response do endpoint [POST /merchantStatus](https://abrasel-nacional.github.io/docs/#operation/getMerchantStatus).
+* Removida a seção **Sales Report**.
+
 ## [1.0.0-rc.11] - 21/02/2022
 
 * [[Issue #76](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/76)] - Adição da entidade `ITEM` como opção do campo  `entityType`  no endpoint [POST /merchantUpdate](https://abrasel-nacional.github.io/docs/#operation/menuUpdated)  .
 * [[Issue #75](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/75)] - Arrumada as descrições dos campos `preparationStartTime` e `takeoutDatetime` do endpoint [GET /orders/{orderId}](https://abrasel-nacional.github.io/docs/#tag/ordersDetails/paths/~1orders~1{orderId}/get) para deixar mais clara a função dos campos. 
 * [[Issue #73](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/73)] - Alterada a descrição dos campos de `latitude` e `longitude` de todos os endpoints que continham estas informações, removendo a descrição `decimal places <= 5` que estava incorreta.
-* Retirada a obrigatoriedade de preenchimento dos campos `latitude` e `longitude` nos endpoints :
-  - [POST /logistics/delivery](https://abrasel-nacional.github.io/docs/#operation/logisticsNewDelivery)
-  - [POST /logistics/availability](https://abrasel-nacional.github.io/docs/#tag/logisticPrice)
-* Adição do enumerador`INVALID_ADDRESS` como opção de preenchimento do campo `rejectReason` do endpoint [POST /deliveryUpdate](https://abrasel-nacional.github.io/docs/#operation/newLogisticEvent)
 
 * Acrescentados novos [Guidelines](https://abrasel-nacional.github.io/docs/#section/General-Guidelines):
 	- Todas as datas devem ser preenchidas considerando o horário em UTC
@@ -48,14 +49,9 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
     - /merchantStatus
     - /events:polling
     - Order Webhook
-    - Delivery Order Webhook
   - Objetos:
     - Merchant 
     - Order
-    - DeliveryOrder
-    - DeliveryOrderEvent
-    - DeliveryAvailabilityPrice
-    - DeliveryOrderDetails
     
 * Adicionada uma nova seção chamada [How to Start](https://abrasel-nacional.github.io/docs/#section/How-to-Start-(Setup-Guide)), para auxiliar as empresas nas implementações e parametrizações.
 
@@ -64,9 +60,6 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 Objetos afetados:
 	- `Address`
 	- `Order`
-* [[Issue #61](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/61)] - Corrigido os campos `deliveryPrice` que estavam referenciando um schema incorreto. Endpoints afetados:
-	- `Delivery Tracking`
-	- `Delivery Availability and Pricing`
 * [[Issue #62](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/62)] - Adicionado o HTTP code **204** no endpoint `GET /events:pooling` a ser utilizado para os casos de não existir novos eventos.
 * [[Issue #63](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/63)] 
 	- Removido o texto descritivo do schema do endpoint `POST /orders/{orderId}/requestCancellation`. 
@@ -80,7 +73,6 @@ Objetos afetados:
 	- `Polygon`
 	- `GeoRadius`
 	- `Order`
-	- `GeoLocalization`
 	
 ### Outras mudanças
 * [[Issue #52](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/52)] - Retirada a obrigatoriedade de preenchimento do  campo `image` nos objetos `Item` e `Category`.
