@@ -3,7 +3,7 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
-## [1.0.0-rc.6] - 12/03/2022
+## [1.1.0-rc.6] - 12/03/2022
 ### Mudanças com quebra de contrato:
 * [[Issue #81](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/81)] - Adicionado o campo `customerName` no endpoint [POST /logistics/delivery](https://abrasel-nacional.github.io/docs/#operation/logisticsNewDelivery)
 * Alterado o nome do campo `deliveryDetailsURL` para `externalTrackingURL` no endpoint [GET /logistics/delivery/{orderId}](https://abrasel-nacional.github.io/docs/#operation/logisticDetails)
@@ -24,7 +24,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 * Adicionada uma nova seção  nas explicações dos [eventos de logística](https://abrasel-nacional.github.io/docs/#tag/logisticOrder) explicando o funcionamento de novas tentativas de um pedido rejeitado.
   
   
-## [1.0.0-rc.5] - 21/02/2022
+## [1.1.0-rc.5] - 21/02/2022
 
 * [[Issue #73](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/73)] - Alterada a descrição dos campos de `latitude` e `longitude` de todos os endpoints que continham estas informações, removendo a descrição `decimal places <= 5` que estava incorreta.
 * Retirada a obrigatoriedade de preenchimento dos campos `latitude` e `longitude` nos endpoints :
@@ -37,7 +37,7 @@ Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 	- Informações de como prover as {baseURLs} dos endpoints
 	- [[Issue #71](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/71)] - Instruções de como enviar parametros de arrays em requests.
 	
-## [1.0.0-rc.4] - 04/02/2022
+## [1.1.0-rc.4] - 04/02/2022
 ### Mudanças com quebra de contrato:
 * Os nomes dos campos do endpoint [/oauth/token](https://abrasel-nacional.github.io/docs/#operation/getToken) foram alterados para atender o padrão proposto pelo oAuth, seguindo as regras descritas nas páginas do padrão:
 
