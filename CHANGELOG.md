@@ -2,6 +2,29 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+## [1.0.0-rc.13] - 21/03/2022
+### Mudanças com quebra de contrato:
+* [[Issue #79](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/79)] - Alteração dos nomes dos campos do objeto `delivery` > `deliveryAddress` do endpoint [GET /orders/{orderId}](https://abrasel-nacional.github.io/docs/#operation/ordersDetails)
+
+  * De `streetName` para `street`
+  * De `streetNumber` para `number`
+  * De `neighborhood` para `district`
+
+    Essas alterações visam deixar os campos padronizados com o restante da documentação.
+
+* Corrigido o tipo dos campos `index` em algumas entidades para `integer`, assim padronizando com o restante da documentação.
+As entidades atualizadas foram:
+
+  Merchant: [GET /merchant](https://abrasel-nacional.github.io/docs/#operation/getMerchant)
+  * `Category` - anteriormente estava `string`
+
+  Orders: [GET /orders/{orderId}](https://abrasel-nacional.github.io/docs/#operation/ordersDetails)
+  * `items` - anteriormente estava `number`
+  * `options` - anteriormente estava `number`
+
+* Adicionado o campo `merchantStatus` no endpoint [POST /merchantUpdate](https://abrasel-nacional.github.io/docs/#operation/menuUpdated). Este campo deve ser utilizado para Abrir ou Fechar o **Merchant** dentro da **Ordering Application**. A descrição do endpoint também foi atualizada para refletir a adição do campo.
+
+
 ## [1.0.0-rc.12] - 12/03/2022
 
 * [[Issue #77](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/77)] - Adição do enum `PROCESSING` como opção do campo  `status` do response do endpoint [POST /merchantStatus](https://abrasel-nacional.github.io/docs/#operation/getMerchantStatus).
