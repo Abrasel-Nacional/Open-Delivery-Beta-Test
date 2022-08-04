@@ -2,6 +2,130 @@
 
 Mudanças efetuadas durante o periodo de Beta Test serão documentadas aqui.
 
+### Version [1.0.1-rc.3]
+
+- Added a new [Working Versions](#tag/versionsSection) section with endpoints so that both the Software Service and the Ordering Application can check which version of the Open Delivery API the other end is using. The endpoints created were:
+
+- [GET /v1/versions/orderingApp](#operation/getOrderingAppVersions)
+- [GET /v1/versions/merchant](#operation/getMerchantVersions)
+
+- [GET /merchant](#operation/getMerchant)
+  - `service` > Changed the `serviceTiming` field by adding fields referring to the scheduling time windows. The structure of the field is now as follows:
+
+  ```
+  ...
+  "serviceTiming":
+      {
+	  "timing": ["INSTANT", "SCHEDULED"],
+	  "schedule":
+	      {
+		  "scheduleTimeWindow": "15_MINUTES",
+		  "scheduleStartWindow": "15_MINUTES",
+		  "scheduleEndWindow": "15_MINUTES",
+	      },
+  ...
+  ```
+
+- [GET /orders/{orderId}](#operation/ordersDetails)
+  - `indoor` > renamed the field `table` to `place`.     
+
+```
+  {
+    ...
+    "indoor": {
+      "mode": "PLACE",
+      "indoorDateTime": "2019-08-24T14:15:22Z",
+      "place": "string"
+    },
+    ...
+  }
+```
+
+#### Other Changes:
+
+- Added a new [Developer Tools](#section/Developer-Tools) section where links to partner tools to help with API development will be listed.
+
+- [Order Overview](#tag/ordersOverview)
+
+- The lifecycle and order flow diagrams have been updated to better reflect the service types.
+
+- Overall revisions of grammatical errors, syntax, examples and descriptions.
+
+### Version [1.0.1-rc.2]
+
+- Added HTTP Status code 422 on the following endpoints:
+- [POST /v1/orders/{orderId}/confirm](#operation/confirmOrder)
+- [POST /v1/orders/{orderId}/readyForPickup](#operation/orderReady)
+- [POST /v1/orders/{orderId}/dispatch](#operation/dispatchOrder)
+- [POST /v1/orders/{orderId}/requestCancellation](#operation/requestCancellation)
+- [POST /v1/orders/{orderId}/acceptCancellation](#operation/cancellationAccepted)
+- [POST /v1/orders/{orderId}/denyCancellation](#operation/cancellationDenied)
+
+- Added HTTP Status code 204 on the following endpoints:
+- [POST /v1/merchantUpdated](#operation/menuUpdated)
+- [POST /v1/orderUpdate](#operation/newEvent)
+- [POST /v1/orders/{orderId}/acceptCancellation](#operation/cancellationAccepted)
+- [POST /v1/orders/{orderId}/denyCancellation](#operation/cancellationDenied)
+
+### Version [1.0.1-rc.1]
+
+- Added a new endpoint so that **Merchant** can send information related to its [GET /merchant](#operation/getMerchant) endpoint to the **Ordering APPLICATION**:
+
+- [PUT /v1/merchantOnboarding](#operation/putMerchantOnboarding) 
+
+- Added the possibility to indicate orders with scheduled delivery.  
+With this the following changes were made:
+
+- [GET /merchant](#operation/getMerchant)
+  - `service` > Added a new optional field `serviceTiming`, where the merchant can indicate the delivery timing available for that service.
+
+- [GET /orders/{orderId}](#operation/ordersDetails)
+  - Added `SCHEDULED` option to the `orderTiming` field.
+
+  - Added a new property called `schedule` where the delivery window for scheduled orders will be specified with the following structure:
+    ```
+	{
+	  ...
+	  "schedule": {
+	    "scheduledDateTimeStart": "2019-08-24T14:15:22Z",
+	    "scheduledDateTimeEnd": "2019-08-24T14:15:22Z"
+	    },
+	  ...
+	}
+    ```
+
+### Version [1.0.1-rc.0]
+
+- Added the `status` property to entities `ItemOffer` and `Option` on the [GET /merchant](#operation/getMerchant) endpoint.
+
+- Removed the **requirement** of the fields:
+- [GET /merchant](#operation/getMerchant)
+  - `menu` > `description`
+  - `menu` > `disclaimer`
+  - `category` > `description`
+  - `optionGroup` > `description`
+
+- Added a new service type called **INDOOR**.  
+The following places are affected:
+
+- [GET /merchant](#operation/getMerchant)
+  - added option `INDOOR` to `type` field of entity `service`.
+
+- [GET /orders/{orderId}](#operation/ordersDetails)
+  - added new property: `indoor` with the following structure:     
+
+```
+  {
+    ...
+    "indoor": {
+      "mode": "DEFAULT",
+      "indoorDateTime": "2019-08-24T14:15:22Z",
+      "table": "string"
+    },
+    ...
+  }
+```
+
 ## [1.0.0-rc.13] - 21/03/2022
 ### Mudanças com quebra de contrato:
 * [[Issue #79](https://github.com/Abrasel-Nacional/Open-Delivery-Beta-Test/issues/79)] - Alteração dos nomes dos campos do objeto `delivery` > `deliveryAddress` do endpoint [GET /orders/{orderId}](https://abrasel-nacional.github.io/docs/#operation/ordersDetails)
